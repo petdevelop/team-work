@@ -1,0 +1,18 @@
+
+<h2 md-dialog-title> Asignar Recurso
+  <md-input-container>
+    <input mdInput [mdDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="assignmentEndDate">
+    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+  </md-input-container>
+  <md-datepicker #picker></md-datepicker>
+</h2>
+
+<md-dialog-content>
+  <md-list *ngFor="let resource of resources">
+    <md-checkbox [(ngModel)]="resource.checked">{{ resource.name }}</md-checkbox>
+  </md-list>  
+</md-dialog-content>
+
+<md-dialog-actions>
+  <button md-button (click)="onClose()">Close</button>
+</md-dialog-actions>

@@ -1,0 +1,24 @@
+<md-card>
+  <form [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+    <md-card-header>
+      <md-card-title>Adicionar Recurso</md-card-title>
+    </md-card-header>
+    
+    <md-card-content>
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Nombre" [formControl]="form.controls['name']">
+      </md-input-container>
+
+      <md-input-container class="full-width">
+        <textarea mdInput placeholder="Descripcion" [formControl]="form.controls['description']"></textarea>
+      </md-input-container>
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Autor" [formControl]="form.controls['author']">
+      </md-input-container>
+    </md-card-content>  
+
+    <md-card-actions>
+      <button md-button [disabled]="!form.valid">Submit</button>
+    </md-card-actions>
+  </form>  
+</md-card>

@@ -1,0 +1,9 @@
+md-card {
+    width: 300px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.full-width {
+  width: 100%;
+}

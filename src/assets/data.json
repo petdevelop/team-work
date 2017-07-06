@@ -1,0 +1,13 @@
+{
+    "persons": [
+        {"id": "1", "name": "Yaisel y Leidy"},
+        {"id": "2", "name": "Haydi y Noel"}
+    ],
+    "resources": [
+        {"id": "1", "name": "CD 1"},
+        {"id": "2", "name": "CD 2"}
+    ],
+    "assignments": [
+        {"person_id": "1", "resource_id": "1", "date":"05-30-2017"}
+    ]
+}

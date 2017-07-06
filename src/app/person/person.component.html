@@ -1,0 +1,44 @@
+<md-card>
+  <form [formGroup]="form" (ngSubmit)="submitForm(form.value)">
+    <md-card-header>
+      <md-card-title>Adicionar Persona</md-card-title>
+    </md-card-header>
+    
+    <md-card-content>
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Nombre" [formControl]="form.controls['firstName']">
+      </md-input-container>
+
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Apellidos" [formControl]="form.controls['lastName']">
+      </md-input-container>
+      
+      <md-input-container class="full-width">
+        <textarea mdInput placeholder="Direccion" [formControl]="form.controls['address']"></textarea>
+      </md-input-container>
+      <md-input-container class="full-width">
+        <input mdInput placeholder="Telefono" [formControl]="form.controls['phone']">
+      </md-input-container>
+
+      <table class="full-width" cellspacing="0">
+        <tr><td><md-input-container class="full-width">
+          <input mdInput placeholder="Ciudad" [formControl]="form.controls['city']">
+        </md-input-container></td>
+        <td><md-input-container class="full-width">
+          <input mdInput placeholder="Estado" [formControl]="form.controls['state']">
+        </md-input-container></td>
+        <td><md-input-container class="full-width">
+          <input mdInput maxlength="5" placeholder="Codigo Postal" [formControl]="form.controls['zipCode']">
+        </md-input-container></td>
+        </tr></table>
+
+      <md-input-container class="full-width">
+        <textarea mdInput placeholder="Nota" [formControl]="form.controls['note']"></textarea>
+      </md-input-container>
+    </md-card-content>
+
+    <md-card-actions>
+      <button md-button [disabled]="!form.valid">Submit</button>
+    </md-card-actions>
+  </form>  
+</md-card>
