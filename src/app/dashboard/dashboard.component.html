@@ -4,15 +4,16 @@
       <md-card class="example-card" *ngFor="let person of persons">
         <md-card-header>
           <md-card-title>{{ person.firstName }}</md-card-title>
-          <md-card-subtitle *ngFor="let assignment of person.assignments">
-            <div *ngFor="let resource of assignment.resources">
-              <span>{{ resource.name }}</span> 
-              <span>{{ assignment.endDate | date: 'dd/MM/yyyy' }}</span>
-            </div>
-          </md-card-subtitle>
         </md-card-header>
         <img md-card-image src="assets/img/empty-user.png">
         <md-card-content>
+          <div *ngFor="let assignment of person.assignments">
+            <div *ngFor="let resource of assignment.resources" style="display: flex; justify-content: space-between">
+              <div style="flex: 3">{{ resource.name }}</div> 
+              <div style="flex: 1">{{ assignment.endDate | date: 'dd/MM' }}</div>
+              <button style="flex: 1" md-button (click)="openDialogUnAssign(assignment.$key)"><i class="material-icons">done</i></button>
+            </div>
+          </div>
           <p>
             {{ person.note }}
           </p>

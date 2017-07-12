@@ -1,7 +1,7 @@
 
 <h2 md-dialog-title> Asignar Recurso
   <md-input-container>
-    <input mdInput [mdDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="assignmentEndDate">
+    <input mdInput [mdDatepicker]="picker" placeholder="Selecciona una fecha" [(ngModel)]="assignmentEndDate" [min]="minDate" [max]="maxDate">
     <button mdSuffix [mdDatepickerToggle]="picker"></button>
   </md-input-container>
   <md-datepicker #picker></md-datepicker>

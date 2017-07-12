@@ -8,9 +8,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   styleUrls: ['./assign.component.css']
 })
 export class AssignComponent implements OnInit {
-  resources: Array<any>;
+  resources: any[];
   isChecked: any;
   assignmentEndDate: string = null;
+  minDate: any;
+  maxDate: any;
   
   constructor(private df: MdDialogRef<AssignComponent>, private db: AngularFireDatabase) {
 
@@ -18,9 +20,43 @@ export class AssignComponent implements OnInit {
 
   ngOnInit() {
     this.db.list('/resources')
-      .subscribe(data => {
-        this.resources = data;
+      .subscribe(resources => {
+          this.resources = resources;
+          
+          this.db.list('/assignments')
+            .subscribe(assignments => {
+              // get the list of unavailable resources
+              let unAvailableResourceKeys: any[] = [];
+              assignments.forEach(element => {
+
+                let endDate = new Date(element.endDate);
+                let today = new Date();
+
+                if (endDate >= today) {
+                  unAvailableResourceKeys = unAvailableResourceKeys.concat(element.resourceKeys);
+                }
+
+                this.resources = this.resources.filter(e => unAvailableResourceKeys.indexOf(e.$key) == -1);
+
+              });
+ 
+            });
+
       });
+
+      let date = new Date();
+
+      this.minDate = new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate() + 1
+      );
+
+      this.maxDate = new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate() + 31
+      );
   }
 
   onClose(): void {

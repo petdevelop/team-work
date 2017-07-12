@@ -16,6 +16,7 @@ import { PersonComponent } from './person/person.component';
 import { ResourceComponent } from './resource/resource.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssignComponent } from './assign/assign.component';
+import { UnAssignComponent } from './un-assign/un-assign.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     PersonComponent,
     ResourceComponent,
     DashboardComponent,
-    AssignComponent
+    AssignComponent,
+    UnAssignComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,6 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [AssignComponent]
+  entryComponents: [AssignComponent, UnAssignComponent]
 })
 export class AppModule { }
