@@ -3,3 +3,28 @@
   margin: auto;
   margin-top: 10px;
 }
+
+.red {
+    color: red;
+}
+
+.assignment {
+  margin-bottom: 10px;
+}
+
+.assignment .start-date {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.assignment .resources {
+  display: flex; 
+  justify-content: flex-start; 
+  align-items: center;
+}
+
+.resources .resource-items {
+  margin-left:10px;
+}
+
